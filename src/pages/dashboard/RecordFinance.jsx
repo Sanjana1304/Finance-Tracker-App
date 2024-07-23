@@ -50,7 +50,6 @@ const RecordFinance = () => {
             <div className="card" key={key}>
               <div className="row" >
                 <div className="col-5 rec-left py-2">Description</div>
-                
                 <div 
                   className="col-7 rec-right" 
                   dangerouslySetInnerHTML={{ __html: record.desc }}

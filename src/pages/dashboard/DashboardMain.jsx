@@ -33,7 +33,7 @@ const DashboardMain = () => {
     (async () => await fetchData())()
 
 
-  }, [user])
+  }, [user,setRecords])
   
   return (
     <>
