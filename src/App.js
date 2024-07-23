@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import DashboardMain from './pages/dashboard/DashboardMain';
+import AuthMain from './pages/auth/AuthMain';
+import { DataProvider } from './context/DataContext';
+import {SignedIn,UserButton} from '@clerk/clerk-react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+      <div className="App">
+      <header className='p-2'>
+        <div className="navbar">
+          <SignedIn className='userBtn'>
+              <UserButton className='userBtn'/>
+          </SignedIn>
+        </div>
       </header>
-    </div>
+      <DataProvider>
+        <Routes>
+          
+          <Route path='/' element={<DashboardMain/>} />
+          <Route path='/auth' element={<AuthMain/>} />
+        </Routes>
+        </DataProvider>
+      </div>
+    </BrowserRouter>
+    
   );
 }
 
